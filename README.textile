@@ -1,0 +1,32 @@
+h1. TypeWatch
+
+A jQuery Plugin that allows to determine when a user has finished typing in a textbox.
+First implementation by Denny Ferrassoli, original website: http://www.dennydotnet.com/post/TypeWatch-jQuery-Plugin.aspx
+
+h3. Usage
+
+<pre><code>$('input.search').typeWatch()</code></pre>
+
+There are a few configuration options:
+
+* <code>callback</code> - The function to callback after the user has "finished" typing. Default <cod>void</code>.
+* <code>wait</code> - The number of milliseconds to wait before the plugin considers that typing has finished. Default <code>750</code>.
+* <code>highlight</code> - Aesthetics, determines if the text should be highlighted when the textbox receives focus. Default <code>true</code>.
+* <code>captureLength</code> - The minimum amount of characters necessary before allowing the event to fire. Default <code>2</code>.
+
+Example with options:
+
+<pre><code>$('input.search').typeWatch({
+  callback: callbackFunction() {
+    // do something here
+  },
+  wait: 500,
+  highlight: false,
+  captureLength: 1
+})</code></pre>
+
+h3. License
+
+Dual licensed under the MIT and GPL licenses.
+http://www.opensource.org/licenses/mit-license.php
+http://www.gnu.org/licenses/gpl.html
