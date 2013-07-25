@@ -23,14 +23,16 @@
 			wait : 500,
 			callback : function() { },
 			highlight : true,
-			captureLength : 2
+			captureLength : 2,
+			fireOnEmpty : false,
 		}, o);
 		
 		function checkElement(timer, override) {
 			var elTxt = jQuery(timer.el).val();
 		
 			if ((elTxt.length >= options.captureLength && elTxt.toUpperCase() != timer.text)
-			|| (override && elTxt.length >= options.captureLength)) {
+			|| (override && elTxt.length >= options.captureLength)
+			|| (options.fireOnEmpty && elTxt.length == 0 && timer.text)) {
 				timer.text = elTxt.toUpperCase();
 				timer.cb(elTxt);
 			}
