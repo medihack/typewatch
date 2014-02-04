@@ -34,13 +34,13 @@
 			|| (override && elTxt.length >= options.captureLength)
 			|| (options.fireOnEmpty && elTxt.length == 0 && timer.text)) {
 				timer.text = elTxt.toUpperCase();
-				timer.cb(elTxt);
+				timer.cb(elTxt, timer.el);
 			}
 		}
 		
 		function watchElement(elem) {			
 			// Must be text or textarea
-			if (elem.type.toUpperCase() == "TEXT" || elem.nodeName.toUpperCase() == "TEXTAREA") {
+			if (elem.type.toUpperCase() == "TEXT" || elem.type.toUpperCase() == "PASSWORD"  || elem.nodeName.toUpperCase() == "TEXTAREA") {
 
 				// Allocate timer element
 				var timer = {
@@ -65,7 +65,7 @@
 					var overrideBool = false;
 
                     // If enter is pressed then diretly execute the callback
-					if (evt.keyCode == 13 && this.type.toUpperCase() == "TEXT") {
+					if (evt.keyCode == 13 && (this.type.toUpperCase() == "TEXT" || this.type.toUpperCase() == "PASSWORD")) {
 						timerWait = 1;
 						overrideBool = true;
 					}
