@@ -40,7 +40,7 @@
 		
 		function watchElement(elem) {			
 			// Must be text or textarea
-			if (elem.type.toUpperCase() == "TEXT" || elem.nodeName.toUpperCase() == "TEXTAREA") {
+			if (elem.type.toUpperCase() == "TEXT" || elem.type.toUpperCase() == "SEARCH" || elem.nodeName.toUpperCase() == "TEXTAREA") {
 
 				// Allocate timer element
 				var timer = {
